@@ -1,0 +1,29 @@
+---
+title: "Exploratory Data Analysis with ggplot2"
+author: "Izzie and Breanna"
+output: html_document
+---
+
+## Introduction
+
+In this R Markdown document, we will load some external data, perform basic visualizations using `ggplot2`, and explore the `gapminder` dataset to create histograms.
+
+### Loading Data and Creating a Simple Plot
+
+First, we’ll load data from an external CSV file and create a simple scatter plot using `ggplot2`.
+
+```{r}
+# Load the necessary library
+library(ggplot2)
+
+# Load the data from an external source
+loc <- "https://cdn.rawgit.com/kjhealy/viz-organdata/master/organdonation.csv"
+dat <- read.csv(loc)
+
+# Check the column names to ensure they are valid
+colnames(dat)
+
+# Check the first few rows of the data to understand its structure
+head(dat)
+
+# Clean column names if nece
