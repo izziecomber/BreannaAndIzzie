@@ -12,7 +12,7 @@ In this R Markdown document, we will load some external data, perform basic visu
 
 First, we’ll load data from an external CSV file and create a simple scatter plot using `ggplot2`.
 
-```{r}
+```{r, echo=FALSE}
 # Load the necessary library
 library(ggplot2)
 
@@ -27,3 +27,29 @@ colnames(dat)
 head(dat)
 
 # Clean column names if nece
+p <- ggplot(data = dat, mapping = aes(x = pop, y = gdp))
+
+#add data 
+
+p + geom_point() +
+  labs(title = "My first ggplot")
+
+#replot gapminder data as histograms 
+#load gapminder library 
+library(gapminder)
+
+#view gap minder data 
+gapminder 
+
+#histogram for gdp data 
+gdp <- ggplot(gapminder, aes(x = gdpPercap)) +
+  geom_histogram() +
+  labs(title = "Histogram of GDP per Capita", x = "GDP per Capita", y = "Count")
+print(gdp)
+
+#histogram for life expectancy data 
+lifeExp <- ggplot(gapminder, aes(x = lifeExp)) +
+  geom_histogram() +
+  labs(title = "Histogram of life expectancy", x = "Age in years", y = "Count")
+print(lifeExp)
+
